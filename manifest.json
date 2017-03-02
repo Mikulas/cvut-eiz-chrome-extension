@@ -1,10 +1,21 @@
 {
-  "name": "A browser action which changes its icon when clicked",
-  "description": "Change browser action color when its icon is clicked",
+  "name": "ČVUT EIZ Proxy",
+  "description": "Reloads articles hidden behind paywall in ČVUT EIZ Proxy",
   "version": "1.2",
   "background": { "scripts": ["background.js"] },
   "browser_action": {
-      "name": "Click to change the icon's color"
+      "name": "Click to change the icon's color",
+      "default_icon": "icon.png"
   },
+	"content_scripts": [
+    {
+  	 "matches": [
+  	   "*://*.acm.org/*",
+       "*://*.ieeexplore.ieee.org/*",
+       "*://*.sciencedirect.com/*"
+     ],
+	   "js": ["content.js"]
+    }
+	],
   "manifest_version": 2
 }
